@@ -1,5 +1,16 @@
 require "qrb/version"
+require 'erb'
 
-module Qrb
-  # Your code goes here...
+module QRB
+  class Translator
+    private
+    attr_reader :sql
+    def initialize(sql)
+      @sql = sql
+    end
+
+    def translate
+      sql.gsub(/\/\*\*/, "<%" ).gsub(/\*\// , "%>")
+    end
+  end
 end

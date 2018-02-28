@@ -5,11 +5,11 @@ require "qrb/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "qrb"
-  spec.version       = Qrb::VERSION
+  spec.version       = QRB::VERSION
   spec.authors       = ["schiughi"]
   spec.email         = ["schiughi@gmail.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because RubyGems requires one.}
+  spec.summary       = %q{raw SQL template}
   spec.description   = %q{TODO: Write a longer description or delete this line.}
   spec.homepage      = "TODO: Put your gem's website or public repo URL here."
   spec.license       = "MIT"

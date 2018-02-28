@@ -1,6 +1,6 @@
-RSpec.describe Qrb do
+RSpec.describe QRB do
   it "has a version number" do
-    expect(Qrb::VERSION).not_to be nil
+    expect(QRB::VERSION).not_to be nil
   end
 
   it "does something useful" do
