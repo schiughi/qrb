@@ -3,7 +3,6 @@ require 'erb'
 
 module QRB
   class Translator
-    private
     attr_reader :sql
     def initialize(sql)
       @sql = sql
