@@ -13,7 +13,7 @@ RSpec.describe QRB::Translator do
       and hoges.age = 23
       EOF
     end
-    it "'/**' -> '<%' " do
+    it "'/** */' -> '<% %>' " do
       expect(translator.translate).to eq <<-EOF
       select 
         *
