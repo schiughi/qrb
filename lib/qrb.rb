@@ -24,7 +24,7 @@ module QRB
     end
 
     def translated
-      Translator.new(file)
+      Translator.new(file).call
     end
   end
 end
