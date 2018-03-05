@@ -8,8 +8,23 @@ module QRB
       @sql = sql
     end
 
-    def translate
+    def call
       sql.gsub(/\/\*\*/, "<%" ).gsub(/\*\// , "%>")
+    end
+  end
+
+  class Query
+    attr_reader :file
+    def initialize(file)
+      @file = file
+    end
+
+    def call
+      ERB.new(translated).result
+    end
+
+    def translated
+      Translator.new(file)
     end
   end
 end
