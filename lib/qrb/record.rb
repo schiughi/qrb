@@ -4,7 +4,7 @@ module QRB
 
   #
   # class User < QRB::Record
-  #   val name: Name, required: true, imutable: true,
+  #   val name: Name, required: true, immutable: true,
   #     contract: { first: :first_name, last: :last_name }
   # end
   #
@@ -13,6 +13,9 @@ module QRB
   #   attr_accessor :first , :last
   # end
   #
+  # user = User.new(first_name: "Tyler", last_name: "Durden")
+  # user.name.first # => "Tyler"
+  #
   class Record
     class Mapper
       attr_reader :name , :klass, :contract
@@ -20,7 +23,7 @@ module QRB
         @name = options.keys.first
         @klass = options.values.first
         @required = options.fetch(:required, false)
-        @imutable = options.fetch(:imutable, false)
+        @immutable = options.fetch(:immutable, false)
         @contract = options.fetch(:contract, {})
       end
 
@@ -28,8 +31,8 @@ module QRB
         @required
       end
 
-      def imutable?
-        @imutable
+      def immutable?
+        @immutable
       end
       
       def contractable?
@@ -62,7 +65,7 @@ module QRB
               attribute = @record_cache[mapper.name.to_sym]
             end
 
-            attribute.freeze if mapper.imutable?
+            attribute.freeze if mapper.immutable?
             attribute
           end
         end
